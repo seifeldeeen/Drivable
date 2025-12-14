@@ -109,6 +109,28 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Testting goes here...
+        //Inheritance
+        DeliveryTruck Delivery = new("El Primo", 3);
+        RefrigeratedTruck Ref = new("Cool", 5);
+        LuxuryCourierVan Luxury = new("Luxury", 10, true);
+        IDeliverable[] arrOfDeliverables = [Delivery, Ref, Luxury];
+        //testing
+        Console.WriteLine("POLYMORPHISM");
+        Delivery.StartEngine();
+        Ref.StartEngine();
+        Luxury.StartEngine();
+        Console.WriteLine("---------------------");
+        Console.WriteLine("ENCAPSULATION AND VALIDATION");
+        Delivery.LoadCargo(7);
+        Delivery.UnloadCargo(7);
+        Delivery.UnloadCargo(3);
+        Console.WriteLine("---------------------");
+        Console.WriteLine("INHERITANCE AND INTERFACE USAGE");
+        for (int i = 0; i < arrOfDeliverables.Length; i++)
+        {
+            arrOfDeliverables[i].LoadCargo(3);
+            Console.WriteLine($"Status of Special Docking for {arrOfDeliverables[i]}: { arrOfDeliverables[i].RequiresSpecialDocking}");
+        }
+        Console.WriteLine("---------------------");
     }
 }
